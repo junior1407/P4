@@ -105,7 +105,7 @@ public class State implements ActionListener {
     				if (boxesMade > 0) {
                                      int index = Main.randomGenerator.nextInt(Main.questions.size());
                                       Question selected = Main.questions.get(index);
-                                    int answer=   JOptionPane.showOptionDialog(null, "Teste", "Titulo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, selected.getAnswers()   , selected.getAnswers()[0] );
+                                    int answer=   JOptionPane.showOptionDialog(null, selected.getQuestion(), "Pergunta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, selected.getAnswers()   , selected.getAnswers()[0] );
 		
                  
 
