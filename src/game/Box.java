@@ -18,17 +18,6 @@ public class Box {
 	// the user completed the box (false if computer completed it)
 	private boolean userCompleted = false;
 
-	/**
-	 * Makes a new box in the field
-	 * 
-	 * @param field the Field object where this box will be rendered
-	 * @param col the column of boxes where this box is to be found
-	 * @param row the row of boxes where this box is to be found
-	 * @param northLine the line that makes up the north side of the box
-	 * @param southLine the line that makes up the south side of the box
-	 * @param eastLine the line that makes up the east side of the box
-	 * @param westLine the line that makes up the west side of the box
-	 */
 	public Box(Field field, int col, int row, Line northLine, Line southLine,
 			Line eastLine, Line westLine) {
 		// save data

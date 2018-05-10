@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
-public class MP3 {
-
+public class Main {
+    
     
     
     public static ArrayList<Question> questions = new ArrayList<Question>();

@@ -103,8 +103,8 @@ public class State implements ActionListener {
                                
                               		// at least one box was made
     				if (boxesMade > 0) {
-                                     int index = MP3.randomGenerator.nextInt(MP3.questions.size());
-                                      Question selected = MP3.questions.get(index);
+                                     int index = Main.randomGenerator.nextInt(Main.questions.size());
+                                      Question selected = Main.questions.get(index);
                                     int answer=   JOptionPane.showOptionDialog(null, "Teste", "Titulo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, selected.getAnswers()   , selected.getAnswers()[0] );
 		
                  
