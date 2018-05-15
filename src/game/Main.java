@@ -1,5 +1,9 @@
 package game;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -12,15 +16,44 @@ public class Main {
     public static Random randomGenerator = new Random();
 	public static void main(String[] argv) {
 	 	
-            questions.add( new Question("3-3*3+3 = ", "-3", "3",0));
-            questions.add( new Question("45+2/0", "Indefiniçao", "45",0));
-            questions.add( new Question("2 * (4 - 3) + 5 = ", "5", "7",1));
-            questions.add( new Question("Qual o simbolo dos inteiros?", "Z", "I",0));
-            questions.add( new Question("2/5 + 3/2 = ", "19/10", "5/7",0));
-            questions.add( new Question("2/4 - 1/2 = ", "1/2", "0",1));
-            questions.add( new Question("A reta 2x+1 é crescente ou decrescente?", "crescente", "decrescente",0));
-            questions.add( new Question("Encontre o valor de X nessa expressão: 3x+5=2-x", "-4/3", "-3/4",1));
-
+            String fileUrl = "C:\\Users\\AGITS\\Desktop\\entrada.csv";
+            BufferedReader br = null;
+            String line = "";
+            String separator = ";";
+            try{
+                br = new BufferedReader(new FileReader(fileUrl));
+                br.readLine();
+                while((line = br.readLine()) != null)
+                {
+                    String[] data = line.split(separator);
+     //               System.out.println("data[1]:"+data[0]+"-data[3]:"+data[1]);
+                    questions.add(new Question(data[0], data[1], data[2], Integer.parseInt(data[3])));
+                }
+                
+            }
+             catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+          catch(ArrayIndexOutOfBoundsException e){
+              e.printStackTrace();
+          }
+            finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+            
+            
+            //questions.add( new Question("P1", "R11", "R21",1));
+            //questions.add( new Question("P2", "R12", "R22",1));
+            //questions.add( new Question("P2", "R13", "R23",1));
+            //questions.add( new Question("P2", "R14", "R24",1));
 		DotsAndBoxes instance = new DotsAndBoxes();
 	instance.newGame(2, 2);
 	}
